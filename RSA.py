@@ -35,6 +35,24 @@ def isPrime(num: int):
             return False
     return True
 
+def CTZ(num: int):
+    return (num & -num).bit_length()-1
+
+def gcd(a: int, b: int):
+    if a == 0:
+        return a
+    if b == 0:
+        return b
+    shift = (CTZ(a), CTZ(b))[CTZ(a) > CTZ(b)]
+    a >>= CTZ(a)
+    while b != 0:
+        b >>= CTZ(b)
+        b -= a
+        c = b >> 31
+        a += b & c
+        b = (b + c) ^ c
+    return a << shift
+
 
 
 
