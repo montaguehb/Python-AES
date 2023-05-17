@@ -16,7 +16,7 @@
 
 #Choose an integer e such that 2 < e < lambda(n). e and lambda(n) are coprime
 
-#Find d=e^-1(mod(lambda(n))) 
+#Find d=e^-1(modulo(lambda(n))) 
 
 import secrets
 from math import sqrt, floor
@@ -54,12 +54,23 @@ def gcd(a: int, b: int):
     return a << shift
 
 def lcm(a: int, b: int):
-    return ((a * b)/gcd(a, b))
+    return int((a * b)/gcd(a, b))
 
-p = randPrime(8)
-q = randPrime(8)
+def findE(a: int):
+    e = randPrime(8)
+    while (e > a | e < 2) & (gcd(e, a) > 1):
+        e = randPrime(8)
+    return e
+
+p = randPrime(32)
+q = randPrime(32)
 n = p * q
+lambdaN = lcm(p - 1, q - 1)
+e = findE(lambdaN)
+d = pow(e, -1, lambdaN)
 
-print(gcd(36, 24))
+c = pow(1000, e, n)
+print(p, q, n)
+print(pow(c, d, n))
 
 
