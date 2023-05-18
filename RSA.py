@@ -76,3 +76,6 @@ c = pow(1000, e, n)
 print((c ** d) % n)
 
 
+# to do
+# add padding scheme and method to convert str to int 
+
