@@ -62,15 +62,17 @@ def findE(a: int):
         e = randPrime(8)
     return e
 
-p = randPrime(32)
-q = randPrime(32)
+p = randPrime(8)
+q = randPrime(8)
 n = p * q
+
+print(p, q, n)
 lambdaN = lcm(p - 1, q - 1)
 e = findE(lambdaN)
 d = pow(e, -1, lambdaN)
 
-c = pow(1000, e, n)
-print(p, q, n)
-print(pow(c, d, n))
+# c = pow(1000, e, n)
+# print(p, q, n)
+# print(pow(c, d, n))
 
 
