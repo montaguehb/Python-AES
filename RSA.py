@@ -71,8 +71,8 @@ lambdaN = lcm(p - 1, q - 1)
 e = findE(lambdaN)
 d = pow(e, -1, lambdaN)
 
-# c = pow(1000, e, n)
+c = pow(1000, e, n)
 # print(p, q, n)
-# print(pow(c, d, n))
+print((c ** d) % n)
 
 
